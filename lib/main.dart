@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage> {
     Random random = Random();
     setState(() {
       randomNumber = random.nextInt(100) + 1;
-      print('Generated number: $randomNumber');
+      //print('Generated number: $randomNumber');
       resultText = '';
       showResetButton = false;
       controller.text = '';
