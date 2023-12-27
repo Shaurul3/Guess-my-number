@@ -1,12 +1,13 @@
-import 'package:flutter/material.dart';
 import 'dart:math';
+
+import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
 }
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -37,7 +38,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   void generateRandomNumber() {
-    Random random = Random();
+    final Random random = Random();
     setState(() {
       randomNumber = random.nextInt(100) + 1;
       //print('Generated number: $randomNumber');
@@ -49,26 +50,18 @@ class _HomePageState extends State<HomePage> {
   }
 
   void checkNumber() {
-    int? enteredNumber = int.tryParse(controller.text);
+    final int? enteredNumber = int.tryParse(controller.text);
     if (enteredNumber != null) {
       if (enteredNumber > randomNumber) {
         setState(() {
-          Text(
-            resultText = "You tried ${controller.text} \nTry lower",
-            textAlign: TextAlign.center,
-            style: const TextStyle(fontSize: 40),
-          );
+          resultText = 'You tried ${controller.text} \nTry lower';
         });
       } else if (enteredNumber < randomNumber) {
         setState(() {
-          Text(
-            resultText = "You tried ${controller.text} \nTry higher",
-            textAlign: TextAlign.center,
-            style: const TextStyle(fontSize: 40),
-          );
+          resultText = 'You tried ${controller.text} \nTry higher';
         });
       } else {
-        showDialog(
+        showDialog<void>(
           context: context,
           builder: (BuildContext context) {
             return AlertDialog(
@@ -102,7 +95,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    var scaffold = Scaffold(
+    final Scaffold scaffold = Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue,
         title: const Text('Guess my number'),
@@ -132,11 +125,10 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           Align(
-            alignment: Alignment.center,
             child: Container(
               margin: const EdgeInsets.all(20),
               decoration: BoxDecoration(
-                boxShadow: [
+                boxShadow: <BoxShadow>[
                   BoxShadow(
                     color: Colors.black.withOpacity(0.1),
                     spreadRadius: 3,
@@ -146,18 +138,17 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
               child: Card(
-                margin: const EdgeInsets.all(0),
                 color: Colors.white,
                 elevation: 0,
                 shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.zero,
+
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(20),
                   child: Column(
-                    children: [
+                    children: <Widget>[
                       const Text(
-                        "Try a number!",
+                        'Try a number!',
                         style: TextStyle(fontSize: 18),
                         textAlign: TextAlign.center,
                       ),
