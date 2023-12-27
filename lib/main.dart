@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -140,9 +139,7 @@ class _HomePageState extends State<HomePage> {
               child: Card(
                 color: Colors.white,
                 elevation: 0,
-                shape: const RoundedRectangleBorder(
-
-                ),
+                shape: const RoundedRectangleBorder(),
                 child: Padding(
                   padding: const EdgeInsets.all(20),
                   child: Column(
